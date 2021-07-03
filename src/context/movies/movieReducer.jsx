@@ -15,9 +15,10 @@ const movieReducer = (state, { type, payload }) => {
         favorites: allFav,
       };
     case GET_FAVORITES:
+      let favMovies = JSON.parse(localStorage.getItem('fav-movies'));
       return {
         ...state,
-        favorites: payload,
+        favorites: favMovies,
       };
 
     default:

@@ -4,19 +4,13 @@ import MoviesContext from './../context/movies/movieContext';
 
 const Favourite = () => {
   const movieContext = useContext(MoviesContext);
-  const { movies } = movieContext;
-
-  //   const [movies, setMovies] = useState([])
-
-  //   useEffect(()=>{
-  //       setMovies
-  //   })
+  const { favorites } = movieContext;
 
   return (
     <>
       <div className='header'>Favourites</div>
       <div className='movieContainer'>
-        {movies.map(movie => (
+        {favorites.map(movie => (
           <FavouritesList key={movie.imdbID} movie={movie} />
         ))}
       </div>

@@ -103,11 +103,8 @@ const MovieState = ({ children }) => {
 
   // Get favorite movies from local storage
   const getFavMovies = () => {
-    let favMovies = localStorage.getItem('fav-movies');
-
     dispatch({
       type: GET_FAVORITES,
-      payload: favMovies,
     });
   };
 

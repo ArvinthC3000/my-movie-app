@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { ADD_FAVORITES, GET_FAVORITES } from '../types';
+import { ADD_FAVORITES, GET_FAVORITES, REMOVE_FAVORITES } from '../types';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 
@@ -101,6 +101,15 @@ const MovieState = ({ children }) => {
     });
   };
 
+  // remove new fav movies
+  const removeFavMovie = id => {
+    console.log(id);
+    dispatch({
+      type: REMOVE_FAVORITES,
+      payload: id,
+    });
+  };
+
   // Get favorite movies from local storage
   const getFavMovies = () => {
     dispatch({
@@ -115,6 +124,7 @@ const MovieState = ({ children }) => {
         favorites: state.favorites,
         addFavMovie,
         getFavMovies,
+        removeFavMovie,
       }}>
       {children}
     </MovieContext.Provider>

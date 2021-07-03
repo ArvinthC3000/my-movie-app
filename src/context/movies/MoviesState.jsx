@@ -1,4 +1,5 @@
 import { useReducer } from 'react';
+import { GET_FAVORITES } from '../types';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 
@@ -86,14 +87,27 @@ const MovieState = ({ children }) => {
           'https://m.media-amazon.com/images/M/MV5BMTY0NTUyMDQwOV5BMl5BanBnXkFtZTgwNjAwMTA0MDE@._V1_SX300.jpg',
       },
     ],
+    favorites: [],
   };
 
   const [state, dispatch] = useReducer(MovieReducer, initialState);
+
+  // Get favorite movies from local storage
+
+  const getFavMovies = () => {
+    let favMovies = localStorage.getItem('fav-movies');
+
+    dispatch({
+      state: GET_FAVORITES,
+      payload: favMovies,
+    });
+  };
 
   return (
     <MovieContext.Provider
       value={{
         movies: state.movies,
+        getFavMovies,
       }}>
       {children}
     </MovieContext.Provider>

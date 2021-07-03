@@ -11,3 +11,16 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+.movieContainer {
+  height: 20rem;
+  background-color: #b8c2d4;
+  display: -webkit-box;
+  width: max-content;
+}
+
+.movieItem {
+  width: 15rem;
+  /* background-color: #282c34; */
+  margin: 0.2rem;
+}

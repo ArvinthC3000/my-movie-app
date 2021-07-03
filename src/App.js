@@ -1,11 +1,12 @@
 import './App.css';
 import Movies from './components/Movies';
+import MovieState from './context/movies/MoviesState';
 
 const App = () => {
   return (
-    <div className='App'>
+    <MovieState>
       <Movies />
-    </div>
+    </MovieState>
   );
 };
 

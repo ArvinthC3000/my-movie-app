@@ -7,11 +7,14 @@ const Movies = () => {
   const { movies } = movieContext;
 
   return (
-    <div className='movieContainer'>
-      {movies.map(movie => (
-        <MoviesList key={movie.imdbID} movie={movie} />
-      ))}
-    </div>
+    <>
+      <div className='header'>Popular</div>
+      <div className='movieContainer'>
+        {movies.map(movie => (
+          <MoviesList key={movie.imdbID} movie={movie} />
+        ))}
+      </div>
+    </>
   );
 };
 

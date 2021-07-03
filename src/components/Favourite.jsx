@@ -6,9 +6,15 @@ const Favourite = () => {
   const movieContext = useContext(MoviesContext);
   const { movies } = movieContext;
 
+  //   const [movies, setMovies] = useState([])
+
+  //   useEffect(()=>{
+  //       setMovies
+  //   })
+
   return (
     <>
-      <div className='header'>Popular</div>
+      <div className='header'>Favourites</div>
       <div className='movieContainer'>
         {movies.map(movie => (
           <FavouritesList key={movie.imdbID} movie={movie} />

@@ -1,13 +1,20 @@
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
+import About from './components/About';
 import Header from './components/Header';
-import Movies from './components/Movies';
+import Home from './components/Home';
 import MovieState from './context/movies/MoviesState';
 
 const App = () => {
   return (
     <MovieState>
-      <Header />
-      <Movies />
+      <Router>
+        <Header />
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/about' exact component={About} />
+        </Switch>
+      </Router>
     </MovieState>
   );
 };

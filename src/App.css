@@ -38,12 +38,13 @@
   color: #fff;
   padding: 0 1rem;
 }
-.app-header > .searchBar > input {
+input {
   width: -webkit-fill-available;
   height: 2rem;
   border-radius: 3rem;
   padding: 0 1rem;
   font-size: 1rem;
+  caret-color: #8d9393;
 }
 
 .movieContainer {
@@ -56,6 +57,10 @@
 }
 .movieContainer::-webkit-scrollbar {
   display: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 .movieItem {

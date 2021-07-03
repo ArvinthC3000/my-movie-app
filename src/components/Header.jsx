@@ -7,13 +7,6 @@ const Header = ({ match }) => {
     <>
       <nav className='app-header navbar'>
         <div className='title'>OMDB API</div>
-        <div className='searchBar'>
-          <input
-            type='text'
-            name='movieString'
-            placeholder='Search movies...'
-          />
-        </div>
         <ul>
           <li>
             <Link to='/'>Home</Link>

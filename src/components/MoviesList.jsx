@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 
 const MoviesList = ({ movie }) => {
-  console.log(movie);
+  // console.log(movie);
   return (
     <div
       className='movieItem'
@@ -9,7 +9,10 @@ const MoviesList = ({ movie }) => {
         backgroundImage: `url('${movie.Poster}')`,
         backgroundSize: '100%, 100%',
       }}>
-      {'Movie'}
+      <div className='overlay-container'>
+        <div className='overlay-title'>{movie.Title}</div>
+        <div className='overlay-body'>{'fav'}</div>
+      </div>
     </div>
   );
 };

@@ -1,3 +1,6 @@
+import { Link } from 'react-router-dom';
+import About from './About';
+
 const Header = () => {
   return (
     <>
@@ -10,7 +13,9 @@ const Header = () => {
             placeholder='Search movies...'
           />
         </div>
-        <div className='about-container'>About</div>
+        <div className='about-container'>
+          <Link to='/about'>About</Link>
+        </div>
       </div>
     </>
   );

@@ -5,8 +5,15 @@ import MoviesContext from './../context/movies/movieContext';
 
 const MoviesList = ({ movie }) => {
   const movieContext = useContext(MoviesContext);
-  const { addFavMovie } = movieContext;
-  // console.log(movie);
+  const { addFavMovie, removeFavMovie, favorites } = movieContext;
+
+  // Toggle favorite
+  const toggleFav = () => {
+    const isFav = favorites.some(fav => fav.imdbID === movie.imdbID);
+
+    !isFav ? addFavMovie(movie.imdbID) : removeFavMovie(movie.imdbID);
+  };
+
   return (
     <div
       className='movieItem'
@@ -17,7 +24,7 @@ const MoviesList = ({ movie }) => {
       <div className='overlay-container'>
         <div className='overlay-title'>{movie.Title}</div>
         <div className='overlay-body'>
-          <FaHeart onClick={() => addFavMovie(movie.imdbID)} />
+          <FaHeart onClick={() => toggleFav()} />
         </div>
       </div>
     </div>

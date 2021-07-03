@@ -4,7 +4,7 @@
   font-size: 1rem;
 
   --primary-color: #282c34;
-  --dark-color: #333333;
+  --dark-color: #000000;
   --light-color: #b8c2d4;
   --danger-color: #dc3545;
   --success-color: #28a745;
@@ -29,7 +29,7 @@
   display: block;
   text-align: center;
   height: 4rem;
-  background-color: #000000;
+  background-color: var(--dark-color);
   margin-bottom: 0.3rem;
   display: flex;
   align-items: center;
@@ -118,7 +118,8 @@ input {
 
 .movieContainer {
   height: 20rem;
-  background-color: #b8c2d4;
+  /* background-color: #b8c2d4; */
+  background-color: var(--dark-color);
   display: -webkit-box;
   width: 100%;
   overflow-x: scroll;
@@ -138,6 +139,43 @@ input {
   width: 15rem;
   /* background-color: #282c34; */
   margin: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.movieItem:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.movieItem:hover .overlay-container {
+  opacity: 1;
+}
+
+.overlay-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  transition: 0.5s ease;
+  opacity: 0;
+  bottom: 0;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+.overlay-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  right: 1rem;
 }
 
 .about-container {

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { FaHeart } from 'react-icons/fa';
 
 const MoviesList = ({ movie }) => {
   // console.log(movie);
@@ -11,7 +12,9 @@ const MoviesList = ({ movie }) => {
       }}>
       <div className='overlay-container'>
         <div className='overlay-title'>{movie.Title}</div>
-        <div className='overlay-body'>{'fav'}</div>
+        <div className='overlay-body'>
+          <FaHeart />
+        </div>
       </div>
     </div>
   );

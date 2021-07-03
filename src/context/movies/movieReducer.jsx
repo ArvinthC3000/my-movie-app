@@ -7,7 +7,6 @@ import {
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const movieReducer = (state, { type, payload }) => {
-  console.log(state, type, payload);
   switch (type) {
     case GET_MOVIES:
       return { ...state, ...payload };

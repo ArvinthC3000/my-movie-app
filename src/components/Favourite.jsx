@@ -8,7 +8,8 @@ const Favourite = () => {
 
   useEffect(() => {
     getFavMovies();
-  });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>

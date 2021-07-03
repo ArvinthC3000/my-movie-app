@@ -1,8 +1,6 @@
 import { Link } from 'react-router-dom';
-import About from './About';
 
 const Header = ({ match }) => {
-  console.log(match);
   return (
     <>
       <nav className='app-header navbar'>

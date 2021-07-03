@@ -1,5 +1,5 @@
 import { useReducer } from 'react';
-import { GET_FAVORITES } from '../types';
+import { ADD_FAVORITES, GET_FAVORITES } from '../types';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 
@@ -92,13 +92,21 @@ const MovieState = ({ children }) => {
 
   const [state, dispatch] = useReducer(MovieReducer, initialState);
 
-  // Get favorite movies from local storage
+  // Add new fav movies
+  const addFavMovie = id => {
+    console.log(id);
+    dispatch({
+      type: ADD_FAVORITES,
+      payload: id,
+    });
+  };
 
+  // Get favorite movies from local storage
   const getFavMovies = () => {
     let favMovies = localStorage.getItem('fav-movies');
 
     dispatch({
-      state: GET_FAVORITES,
+      type: GET_FAVORITES,
       payload: favMovies,
     });
   };
@@ -107,6 +115,8 @@ const MovieState = ({ children }) => {
     <MovieContext.Provider
       value={{
         movies: state.movies,
+        favorites: state.favorites,
+        addFavMovie,
         getFavMovies,
       }}>
       {children}

@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { FaHeart } from 'react-icons/fa';
+import MoviesContext from './../context/movies/movieContext';
 
 const MoviesList = ({ movie }) => {
+  const movieContext = useContext(MoviesContext);
+  const { addFavMovie } = movieContext;
   // console.log(movie);
   return (
     <div
@@ -13,7 +17,7 @@ const MoviesList = ({ movie }) => {
       <div className='overlay-container'>
         <div className='overlay-title'>{movie.Title}</div>
         <div className='overlay-body'>
-          <FaHeart />
+          <FaHeart onClick={() => addFavMovie(movie.imdbID)} />
         </div>
       </div>
     </div>

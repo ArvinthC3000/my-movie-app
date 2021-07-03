@@ -1,3 +1,4 @@
+import Favourite from './Favourite';
 import Movies from './Movies';
 import SearchBar from './SearchBar';
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <SearchBar />
       <Movies />
+      <Favourite />
     </div>
   );
 };

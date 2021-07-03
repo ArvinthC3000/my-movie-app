@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
 import About from './About';
 
-const Header = () => {
+const Header = ({ match }) => {
+  console.log(match);
   return (
     <>
-      <div className='app-header'>
+      <nav className='app-header navbar'>
         <div className='title'>OMDB API</div>
         <div className='searchBar'>
           <input
@@ -13,10 +14,17 @@ const Header = () => {
             placeholder='Search movies...'
           />
         </div>
-        <div className='about-container'>
-          <Link to='/about'>About</Link>
-        </div>
-      </div>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+        </ul>
+        {/* <div className='about-container'>
+        </div> */}
+      </nav>
     </>
   );
 };

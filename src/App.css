@@ -1,5 +1,12 @@
 :root {
   background-color: #282c34;
+  color: #fff;
+
+  --primary-color: #282c34;
+  --dark-color: #333333;
+  --light-color: #f4f4f4;
+  --danger-color: #dc3545;
+  --success-color: #28a745;
 }
 
 .App {
@@ -12,14 +19,65 @@
   }
 }
 
-.app-header {
+.container {
+  padding: 1rem 2rem;
+}
+
+/* Navbar */
+.navbar {
+  display: block;
+  text-align: center;
   height: 4rem;
   background-color: #000000;
   margin-bottom: 0.3rem;
   display: flex;
   align-items: center;
-  font-size: 2rem;
+  /* font-size: 2rem; */
 }
+
+.navbar ul {
+  text-align: center;
+  justify-content: center;
+}
+
+.navbar a:hover {
+  color: var(--dark-color);
+}
+
+.navbar .welcome span {
+  margin-right: 0.6rem;
+}
+
+.navbar ul {
+  display: flex;
+}
+
+.navbar a {
+  color: #fff;
+  padding: 0.45rem;
+  margin: 0 0.25rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  z-index: 1;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
 .app-header > .title {
   display: flex;
   height: 100%;

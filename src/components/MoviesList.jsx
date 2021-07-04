@@ -6,23 +6,24 @@ import MoviesContext from './../context/movies/movieContext';
 const MoviesList = ({ movie }) => {
   const movieContext = useContext(MoviesContext);
   const { addFavMovie, removeFavMovie, favorites } = movieContext;
+  console.log(movie);
 
-  const isFav = favorites.some(fav => fav.imdbID === movie.imdbID);
+  const isFav = favorites.some(fav => fav.id === movie.id);
 
   // Toggle favorite
   const toggleFav = () => {
-    !isFav ? addFavMovie(movie.imdbID) : removeFavMovie(movie.imdbID);
+    !isFav ? addFavMovie(movie.id) : removeFavMovie(movie.id);
   };
 
   return (
     <div
       className='movieItem'
       style={{
-        backgroundImage: `url('${movie.Poster}')`,
+        backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`,
         backgroundSize: '100%, 100%',
       }}>
       <div className='overlay-container'>
-        <div className='overlay-title'>{movie.Title}</div>
+        <div className='overlay-title'>{movie.title}</div>
         <div className='overlay-body'>
           <FaHeart
             color={`${isFav ? 'red' : ''}`}

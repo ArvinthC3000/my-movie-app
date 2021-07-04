@@ -3,11 +3,17 @@ import {
   GET_FAVORITES,
   GET_MOVIES,
   REMOVE_FAVORITES,
+  SET_DEFAULT_MOVIES,
 } from '../types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
 const movieReducer = (state, { type, payload }) => {
   switch (type) {
+    case SET_DEFAULT_MOVIES:
+      return {
+        ...state,
+        default: payload,
+      };
     case GET_MOVIES:
       return { ...state, ...payload };
     case ADD_FAVORITES: {

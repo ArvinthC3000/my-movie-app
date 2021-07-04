@@ -1,6 +1,11 @@
 import axios from 'axios';
 import { useReducer } from 'react';
-import { ADD_FAVORITES, GET_FAVORITES, REMOVE_FAVORITES } from '../types';
+import {
+  ADD_FAVORITES,
+  GET_FAVORITES,
+  REMOVE_FAVORITES,
+  SET_DEFAULT_MOVIES,
+} from '../types';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 
@@ -120,7 +125,21 @@ const MovieState = ({ children }) => {
   };
 
   // Get Default movies
-  const getDefaultMovies = async string => {
+  const getDefaultMovies = async () => {
+    const response = await axios.get(
+      `https://api.themoviedb.org/3/movie/popular`,
+      {
+        params: { api_key, language: 'en-US', page: '1' },
+      }
+    );
+    const { results } = response.data;
+    dispatch({
+      type: SET_DEFAULT_MOVIES,
+      payload: results,
+    });
+  };
+
+  const getMovies = async string => {
     const response = await axios.get(
       `https://api.themoviedb.org/3/movie/popular`,
       {
@@ -142,6 +161,7 @@ const MovieState = ({ children }) => {
         getFavMovies,
         removeFavMovie,
         getMovies,
+        getDefaultMovies,
       }}>
       {children}
     </MovieContext.Provider>

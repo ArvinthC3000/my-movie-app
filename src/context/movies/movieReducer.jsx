@@ -17,7 +17,10 @@ const movieReducer = (state, { type, payload }) => {
     case REMOVE_MOVIES:
       return { ...state, movies: [] };
     case ADD_FAVORITES: {
-      const favMovie = state.movies.filter(movie => movie.id === payload);
+      let favMovie = state.movies.filter(movie => movie.id === payload);
+      if (!favMovie.length)
+        favMovie = state.popular.filter(movie => movie.id === payload);
+      console.log(favMovie);
       let allFav = [...favMovie];
       if (state.favorites !== null) {
         allFav.push(...state.favorites);

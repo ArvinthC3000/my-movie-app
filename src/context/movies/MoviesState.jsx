@@ -94,7 +94,6 @@ const MovieState = ({ children }) => {
 
   // Add new fav movies
   const addFavMovie = id => {
-    console.log(id);
     dispatch({
       type: ADD_FAVORITES,
       payload: id,
@@ -103,7 +102,6 @@ const MovieState = ({ children }) => {
 
   // remove new fav movies
   const removeFavMovie = id => {
-    console.log(id);
     dispatch({
       type: REMOVE_FAVORITES,
       payload: id,

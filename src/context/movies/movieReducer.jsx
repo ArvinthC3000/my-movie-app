@@ -3,6 +3,7 @@ import {
   GET_FAVORITES,
   GET_MOVIES,
   REMOVE_FAVORITES,
+  REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
 } from '../types';
 
@@ -10,8 +11,11 @@ import {
 const movieReducer = (state, { type, payload }) => {
   switch (type) {
     case SET_DEFAULT_MOVIES:
+      return { ...state, popular: payload };
     case GET_MOVIES:
       return { ...state, movies: payload };
+    case REMOVE_MOVIES:
+      return { ...state, movies: [] };
     case ADD_FAVORITES: {
       const favMovie = state.movies.filter(movie => movie.id === payload);
       let allFav = [...favMovie];

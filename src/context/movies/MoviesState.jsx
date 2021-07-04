@@ -5,6 +5,7 @@ import {
   GET_FAVORITES,
   GET_MOVIES,
   REMOVE_FAVORITES,
+  REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
 } from '../types';
 import MovieContext from './movieContext';
@@ -12,7 +13,7 @@ import MovieReducer from './movieReducer';
 
 const MovieState = ({ children }) => {
   const initialState = {
-    // default: [],
+    popular: [],
     movies: [],
     favorites: [],
   };
@@ -44,6 +45,13 @@ const MovieState = ({ children }) => {
     });
   };
 
+  // Rmove movies from state
+  const removeMovies = () => {
+    dispatch({
+      type: REMOVE_MOVIES,
+    });
+  };
+
   // Get Default movies
   const getDefaultMovies = async () => {
     const response = await axios.get(
@@ -61,6 +69,10 @@ const MovieState = ({ children }) => {
   };
 
   const getMovies = async string => {
+    if (!string.length) {
+      removeMovies();
+      return;
+    }
     const response = await axios.get(
       `https://api.themoviedb.org/3/search/movie`,
       {
@@ -80,12 +92,13 @@ const MovieState = ({ children }) => {
     <MovieContext.Provider
       value={{
         movies: state.movies,
-        // defaultMovies: state.default,
+        popular: state.popular,
         favorites: state.favorites,
         addFavMovie,
         getFavMovies,
         removeFavMovie,
         getMovies,
+        removeMovies,
         getDefaultMovies,
       }}>
       {children}

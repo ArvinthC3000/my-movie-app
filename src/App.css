@@ -170,6 +170,13 @@ input {
   text-align: center;
 }
 
+.overlay-title {
+  width: 80%;
+  position: relative;
+  left: -50%;
+  transform: translate(50%, 0px);
+}
+
 .overlay-body {
   display: flex;
   align-items: center;

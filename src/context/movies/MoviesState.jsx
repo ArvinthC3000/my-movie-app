@@ -100,7 +100,7 @@ const MovieState = ({ children }) => {
     });
   };
 
-  // remove new fav movies
+  // Remove from fav movies
   const removeFavMovie = id => {
     dispatch({
       type: REMOVE_FAVORITES,

@@ -4,15 +4,17 @@ import MoviesContext from './../context/movies/movieContext';
 
 const Movies = () => {
   const movieContext = useContext(MoviesContext);
-  const { movies } = movieContext;
+  const { movies, defaultMovies } = movieContext;
 
   return (
     <>
       <div className='header'>Popular</div>
       <div className='movieContainer'>
-        {movies.map(movie => (
-          <MoviesList key={movie.imdbID} movie={movie} />
-        ))}
+        {movies.length
+          ? movies.map(movie => <MoviesList key={movie.imdbID} movie={movie} />)
+          : defaultMovies.map(movie => (
+              <MoviesList key={movie.imdbID} movie={movie} />
+            ))}
       </div>
     </>
   );

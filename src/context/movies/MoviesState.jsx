@@ -5,7 +5,7 @@ import MovieReducer from './movieReducer';
 
 const MovieState = ({ children }) => {
   const initialState = {
-    movies: [
+    default: [
       {
         Title: 'The Avengers',
         Year: '2012',
@@ -87,6 +87,7 @@ const MovieState = ({ children }) => {
           'https://m.media-amazon.com/images/M/MV5BMTY0NTUyMDQwOV5BMl5BanBnXkFtZTgwNjAwMTA0MDE@._V1_SX300.jpg',
       },
     ],
+    movies: [],
     favorites: [],
   };
 
@@ -119,6 +120,7 @@ const MovieState = ({ children }) => {
     <MovieContext.Provider
       value={{
         movies: state.movies,
+        defaultMovies: state.default,
         favorites: state.favorites,
         addFavMovie,
         getFavMovies,

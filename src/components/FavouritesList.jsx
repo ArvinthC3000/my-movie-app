@@ -11,11 +11,11 @@ const FavouritesList = ({ movie }) => {
     <div
       className='movieItem'
       style={{
-        backgroundImage: `url('${movie.Poster}')`,
+        backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`,
         backgroundSize: '100%, 100%',
       }}>
       <div className='overlay-container'>
-        <div className='overlay-title'>{movie.Title}</div>
+        <div className='overlay-title'>{movie.title}</div>
         <div className='overlay-body'>
           <FaHeart onClick={() => removeFavMovie(movie.id)} color='red' />
         </div>

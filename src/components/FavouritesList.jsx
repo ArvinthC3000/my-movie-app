@@ -17,7 +17,7 @@ const FavouritesList = ({ movie }) => {
       <div className='overlay-container'>
         <div className='overlay-title'>{movie.Title}</div>
         <div className='overlay-body'>
-          <FaHeart onClick={() => removeFavMovie(movie.imdbID)} color='red' />
+          <FaHeart onClick={() => removeFavMovie(movie.id)} color='red' />
         </div>
       </div>
     </div>

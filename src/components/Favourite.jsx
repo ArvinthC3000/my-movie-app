@@ -15,9 +15,11 @@ const Favourite = () => {
     <>
       <div className='header'>Favourites</div>
       <div className='movieContainer'>
-        {favorites.map(movie => (
-          <FavouritesList key={movie.imdbID} movie={movie} />
-        ))}
+        {favorites !== null
+          ? favorites.map(movie => (
+              <FavouritesList key={movie.id} movie={movie} />
+            ))
+          : 'No favourites yet'}
       </div>
     </>
   );

@@ -6,9 +6,10 @@ import MoviesContext from './../context/movies/movieContext';
 const MoviesList = ({ movie }) => {
   const movieContext = useContext(MoviesContext);
   const { addFavMovie, removeFavMovie, favorites } = movieContext;
-  console.log(movie);
+  // console.log(movie);
 
-  const isFav = favorites.some(fav => fav.id === movie.id);
+  const isFav =
+    favorites !== null ? favorites.some(fav => fav.id === movie.id) : false;
 
   // Toggle favorite
   const toggleFav = () => {

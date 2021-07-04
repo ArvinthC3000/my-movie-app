@@ -15,9 +15,9 @@ const movieReducer = (state, { type, payload }) => {
         default: payload,
       };
     case GET_MOVIES:
-      return { ...state, ...payload };
+      return { ...state, movies: payload };
     case ADD_FAVORITES: {
-      const favMovie = state.movies.filter(movie => movie.imdbID === payload);
+      const favMovie = state.movies.filter(movie => movie.id === payload);
       const allFav = [...favMovie, ...state.favorites];
       localStorage.setItem('fav-movies', JSON.stringify(allFav));
       return {
@@ -26,9 +26,7 @@ const movieReducer = (state, { type, payload }) => {
       };
     }
     case REMOVE_FAVORITES: {
-      const favMovie = state.favorites.filter(
-        movie => movie.imdbID !== payload
-      );
+      const favMovie = state.favorites.filter(movie => movie.id !== payload);
       const allFav = favMovie;
       localStorage.setItem('fav-movies', JSON.stringify(allFav));
       return {

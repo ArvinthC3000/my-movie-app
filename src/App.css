@@ -117,7 +117,7 @@ input {
 }
 
 .movieContainer {
-  height: 20rem;
+  height: 23.5rem;
   /* background-color: #b8c2d4; */
   background-color: var(--dark-color);
   display: -webkit-box;

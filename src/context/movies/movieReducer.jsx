@@ -10,10 +10,6 @@ import {
 const movieReducer = (state, { type, payload }) => {
   switch (type) {
     case SET_DEFAULT_MOVIES:
-      return {
-        ...state,
-        movies: payload,
-      };
     case GET_MOVIES:
       return { ...state, movies: payload };
     case ADD_FAVORITES: {

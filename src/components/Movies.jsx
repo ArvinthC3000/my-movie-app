@@ -4,7 +4,7 @@ import MoviesContext from './../context/movies/movieContext';
 
 const Movies = () => {
   const movieContext = useContext(MoviesContext);
-  const { movies, defaultMovies, getDefaultMovies } = movieContext;
+  const { movies, getDefaultMovies } = movieContext;
   useEffect(() => {
     getDefaultMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -14,11 +14,8 @@ const Movies = () => {
     <>
       <div className='header'>Popular</div>
       <div className='movieContainer'>
-        {movies.length
-          ? movies.map(movie => <MoviesList key={movie.id} movie={movie} />)
-          : defaultMovies.map(movie => (
-              <MoviesList key={movie.id} movie={movie} />
-            ))}
+        {movies.length &&
+          movies.map(movie => <MoviesList key={movie.id} movie={movie} />)}
       </div>
     </>
   );

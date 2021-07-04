@@ -12,7 +12,7 @@ import MovieReducer from './movieReducer';
 
 const MovieState = ({ children }) => {
   const initialState = {
-    default: [],
+    // default: [],
     movies: [],
     favorites: [],
   };
@@ -80,7 +80,7 @@ const MovieState = ({ children }) => {
     <MovieContext.Provider
       value={{
         movies: state.movies,
-        defaultMovies: state.default,
+        // defaultMovies: state.default,
         favorites: state.favorites,
         addFavMovie,
         getFavMovies,

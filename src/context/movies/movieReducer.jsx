@@ -12,13 +12,16 @@ const movieReducer = (state, { type, payload }) => {
     case SET_DEFAULT_MOVIES:
       return {
         ...state,
-        default: payload,
+        movies: payload,
       };
     case GET_MOVIES:
       return { ...state, movies: payload };
     case ADD_FAVORITES: {
       const favMovie = state.movies.filter(movie => movie.id === payload);
-      const allFav = [...favMovie, ...state.favorites];
+      let allFav = [...favMovie];
+      if (state.favorites !== null) {
+        allFav.push(...state.favorites);
+      }
       localStorage.setItem('fav-movies', JSON.stringify(allFav));
       return {
         ...state,

@@ -8,7 +8,7 @@ const FavouritesList = ({ movie }) => {
   const { removeFavMovie } = movieContext;
 
   return (
-    <a href='#!' className='movieItem'>
+    <a href='#movie-modal' className='movieItem'>
       <div
         className='movieItem'
         style={{

@@ -17,7 +17,7 @@ const MoviesList = ({ movie }) => {
   };
 
   return (
-    <a href='#!' className='movieItem'>
+    <a href='#movie-modal' className='movieItem'>
       <div
         className='movieItem'
         style={{

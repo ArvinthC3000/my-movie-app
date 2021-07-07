@@ -127,23 +127,38 @@ input {
 }
 
 .movieItem {
+  /* background-color: #282c34; */
+  /* width: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: transform 0.2s; */
   width: 15rem;
   /* background-color: #282c34; */
-  margin: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   transition: transform 0.2s;
+  height: 97%;
 }
 
 .movieItem:hover {
   cursor: pointer;
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .movieItem:hover .overlay-container {
   opacity: 1;
+}
+
+a.movieItem {
+  margin: 0.5rem;
+  padding: 0;
+  transition: transform 0s;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .overlay-container {

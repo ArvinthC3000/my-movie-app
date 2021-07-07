@@ -8,19 +8,21 @@ const FavouritesList = ({ movie }) => {
   const { removeFavMovie } = movieContext;
 
   return (
-    <div
-      className='movieItem'
-      style={{
-        backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`,
-        backgroundSize: '100%, 100%',
-      }}>
-      <div className='overlay-container'>
-        <div className='overlay-title'>{movie.title}</div>
-        <div className='overlay-body'>
-          <FaHeart onClick={() => removeFavMovie(movie.id)} color='red' />
+    <a href='#!' className='movieItem'>
+      <div
+        className='movieItem'
+        style={{
+          backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`,
+          backgroundSize: '100%, 100%',
+        }}>
+        <div className='overlay-container'>
+          <div className='overlay-title'>{movie.title}</div>
+          <div className='overlay-body'>
+            <FaHeart onClick={() => removeFavMovie(movie.id)} color='red' />
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   );
 };
 

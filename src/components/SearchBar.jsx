@@ -16,6 +16,7 @@ const SearchBar = () => {
           onChange={searchMovies}
           name='movieString'
           placeholder='Search movies...'
+          style={{ color: 'white' }}
         />
       </div>
     </>

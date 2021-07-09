@@ -1,14 +1,19 @@
 import { Link } from 'react-router-dom';
 
 const Header = ({ match }) => {
+  console.log(match);
+  console.log(match?.url);
+
   return (
     <>
       <nav className='app-header navbar'>
         <div className='title'>OMDB API</div>
         <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
+          {match && (
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
+          )}
           <li>
             <Link to='/about'>About</Link>
           </li>

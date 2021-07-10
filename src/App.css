@@ -77,7 +77,8 @@ ul {
   align-items: center;
   color: #fff;
   padding: 0 1rem;
-  font-size: calc(4vw);
+  font-size: calc(4vmin);
+  line-height: normal;
 }
 
 .searchBar {

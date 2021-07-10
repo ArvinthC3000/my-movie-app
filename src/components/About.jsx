@@ -1,7 +1,6 @@
 import Header from './Header';
 
 const About = ({ match }) => {
-  console.log(match);
   return (
     <>
       <Header />

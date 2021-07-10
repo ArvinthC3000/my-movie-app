@@ -11,17 +11,13 @@ const Header = ({ match }) => {
         <div className='title'>OMDB API</div>
         <SearchBar />
         <ul>
-          {match && (
-            <li>
-              <Link to='/'>Home</Link>
-            </li>
-          )}
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
           <li>
             <Link to='/about'>About</Link>
           </li>
         </ul>
-        {/* <div className='about-container'>
-        </div> */}
       </nav>
     </>
   );

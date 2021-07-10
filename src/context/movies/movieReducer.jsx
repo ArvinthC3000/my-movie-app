@@ -20,10 +20,8 @@ const movieReducer = (state, { type, payload }) => {
     case GET_SEARCH_STRING:
       return { ...state, searchString: payload };
     case ADD_FAVORITES: {
-      let favMovie = state.movies.filter(movie => movie.id === payload);
-      if (!favMovie.length)
-        favMovie = state.popular.filter(movie => movie.id === payload);
-      console.log(favMovie);
+      let movieArray = state.movies || state.popular;
+      let favMovie = movieArray.filter(movie => movie.id === payload);
       let allFav = [...favMovie];
       if (state.favorites !== null) {
         allFav.push(...state.favorites);

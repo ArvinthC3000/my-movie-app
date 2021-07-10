@@ -2,9 +2,6 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 const Header = ({ match }) => {
-  console.log(match);
-  console.log(match?.url);
-
   return (
     <>
       <nav className='app-header navbar'>

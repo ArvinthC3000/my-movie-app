@@ -2,6 +2,7 @@ import {
   ADD_FAVORITES,
   GET_FAVORITES,
   GET_MOVIES,
+  GET_SEARCH_STRING,
   REMOVE_FAVORITES,
   REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
@@ -15,7 +16,9 @@ const movieReducer = (state, { type, payload }) => {
     case GET_MOVIES:
       return { ...state, movies: payload };
     case REMOVE_MOVIES:
-      return { ...state, movies: [] };
+      return { ...state, movies: null };
+    case GET_SEARCH_STRING:
+      return { ...state, searchString: payload };
     case ADD_FAVORITES: {
       let favMovie = state.movies.filter(movie => movie.id === payload);
       if (!favMovie.length)

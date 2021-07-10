@@ -4,6 +4,7 @@ import {
   ADD_FAVORITES,
   GET_FAVORITES,
   GET_MOVIES,
+  GET_SEARCH_STRING,
   REMOVE_FAVORITES,
   REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
@@ -16,6 +17,7 @@ const MovieState = ({ children }) => {
     popular: [],
     movies: null,
     favorites: [],
+    searchString: null,
   };
 
   const api_key = `04c35731a5ee918f014970082a0088b1`; // TMDB
@@ -68,9 +70,11 @@ const MovieState = ({ children }) => {
 
   const getMovies = async string => {
     if (!string.trim().length) {
+      setSearchString(null);
       removeMovies();
       return;
     }
+    setSearchString(string);
     const response = await axios.get(`${tmdb_url}/search/movie`, {
       params: { sort_by: 'created_at.asc', query: string, api_key },
     });
@@ -83,12 +87,20 @@ const MovieState = ({ children }) => {
     });
   };
 
+  const setSearchString = string => {
+    dispatch({
+      type: GET_SEARCH_STRING,
+      payload: string,
+    });
+  };
+
   return (
     <MovieContext.Provider
       value={{
         movies: state.movies,
         popular: state.popular,
         favorites: state.favorites,
+        searchString: state.searchString,
         addFavMovie,
         getFavMovies,
         removeFavMovie,

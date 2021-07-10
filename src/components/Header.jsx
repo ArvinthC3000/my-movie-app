@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 const Header = ({ match }) => {
   console.log(match);
@@ -8,6 +9,7 @@ const Header = ({ match }) => {
     <>
       <nav className='app-header navbar'>
         <div className='title'>OMDB API</div>
+        <SearchBar />
         <ul>
           {match && (
             <li>

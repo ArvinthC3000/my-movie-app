@@ -8,6 +8,7 @@ import {
   REMOVE_FAVORITES,
   REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
+  SET_MODAL_DATA,
 } from '../types';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
@@ -18,6 +19,7 @@ const MovieState = ({ children }) => {
     movies: null,
     favorites: [],
     searchString: null,
+    modalData: null,
   };
 
   const api_key = `04c35731a5ee918f014970082a0088b1`; // TMDB
@@ -94,6 +96,13 @@ const MovieState = ({ children }) => {
     });
   };
 
+  const setModalID = movie => {
+    dispatch({
+      type: SET_MODAL_DATA,
+      payload: movie,
+    });
+  };
+
   return (
     <MovieContext.Provider
       value={{
@@ -101,12 +110,14 @@ const MovieState = ({ children }) => {
         popular: state.popular,
         favorites: state.favorites,
         searchString: state.searchString,
+        modalData: state.modalData,
         addFavMovie,
         getFavMovies,
         removeFavMovie,
         getMovies,
         removeMovies,
         getDefaultMovies,
+        setModalID,
       }}>
       {children}
     </MovieContext.Provider>

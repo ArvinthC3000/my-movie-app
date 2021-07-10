@@ -6,6 +6,7 @@ import {
   REMOVE_FAVORITES,
   REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
+  SET_MODAL_DATA,
 } from '../types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -19,6 +20,8 @@ const movieReducer = (state, { type, payload }) => {
       return { ...state, movies: null };
     case GET_SEARCH_STRING:
       return { ...state, searchString: payload };
+    case SET_MODAL_DATA:
+      return { ...state, modalData: payload };
     case ADD_FAVORITES: {
       let movieArray = state.movies || state.popular;
       let favMovie = movieArray.filter(movie => movie.id === payload);

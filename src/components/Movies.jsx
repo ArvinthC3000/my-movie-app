@@ -4,7 +4,7 @@ import MoviesContext from './../context/movies/movieContext';
 
 const Movies = () => {
   const movieContext = useContext(MoviesContext);
-  const { movies, popular, getDefaultMovies } = movieContext;
+  const { movies, popular, getDefaultMovies, searchString } = movieContext;
   useEffect(() => {
     getDefaultMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -20,7 +20,7 @@ const Movies = () => {
         {movies == null
           ? popular.map(movie => <MoviesList key={movie.id} movie={movie} />)
           : !movies.length
-          ? 'No movies'
+          ? `No result found for '${searchString}'`
           : movies.map(movie => <MoviesList key={movie.id} movie={movie} />)}
       </div>
     </>

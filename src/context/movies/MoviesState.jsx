@@ -14,7 +14,7 @@ import MovieReducer from './movieReducer';
 const MovieState = ({ children }) => {
   const initialState = {
     popular: [],
-    movies: [],
+    movies: null,
     favorites: [],
   };
 

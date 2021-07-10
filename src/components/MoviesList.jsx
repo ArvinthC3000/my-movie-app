@@ -12,7 +12,8 @@ const MoviesList = ({ movie }) => {
     favorites !== null ? favorites.some(fav => fav.id === movie.id) : false;
 
   // Toggle favorite
-  const toggleFav = () => {
+  const toggleFav = e => {
+    e.stopPropagation();
     !isFav ? addFavMovie(movie.id) : removeFavMovie(movie.id);
   };
 
@@ -27,10 +28,7 @@ const MoviesList = ({ movie }) => {
         <div className='overlay-container'>
           <div className='overlay-title'>{movie.title}</div>
           <div className='overlay-body'>
-            <FaHeart
-              color={`${isFav ? 'red' : ''}`}
-              onClick={() => toggleFav()}
-            />
+            <FaHeart color={`${isFav ? 'red' : ''}`} onClick={toggleFav} />
           </div>
         </div>
       </div>

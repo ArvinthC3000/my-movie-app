@@ -5,10 +5,19 @@ import { FaHeart } from 'react-icons/fa';
 
 const FavouritesList = ({ movie }) => {
   const movieContext = useContext(MoviesContext);
-  const { removeFavMovie } = movieContext;
+  const { removeFavMovie, setModalID } = movieContext;
+
+  // Remove favorite
+  const toggleFav = e => {
+    e.stopPropagation();
+    removeFavMovie(movie.id);
+  };
 
   return (
-    <a href='#movie-modal' className='movieItem'>
+    <a
+      href='#movie-modal'
+      className='movieItem modal-trigger'
+      onClick={() => setModalID(movie)}>
       <div
         className='movieItem'
         style={{
@@ -18,7 +27,7 @@ const FavouritesList = ({ movie }) => {
         <div className='overlay-container'>
           <div className='overlay-title'>{movie.title}</div>
           <div className='overlay-body'>
-            <FaHeart onClick={() => removeFavMovie(movie.id)} color='red' />
+            <FaHeart onClick={toggleFav} color='red' />
           </div>
         </div>
       </div>

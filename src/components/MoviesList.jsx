@@ -5,7 +5,7 @@ import MoviesContext from './../context/movies/movieContext';
 
 const MoviesList = ({ movie }) => {
   const movieContext = useContext(MoviesContext);
-  const { addFavMovie, removeFavMovie, favorites } = movieContext;
+  const { addFavMovie, removeFavMovie, favorites, setModalID } = movieContext;
   // console.log(movie);
 
   const isFav =
@@ -18,7 +18,10 @@ const MoviesList = ({ movie }) => {
   };
 
   return (
-    <a href='#movie-modal' className='movieItem modal-trigger'>
+    <a
+      href='#movie-modal'
+      className='movieItem modal-trigger'
+      onClick={() => setModalID(movie)}>
       <div
         className='movieItem'
         style={{

@@ -159,6 +159,7 @@ a.movieItem {
   transition: transform 0s;
   box-sizing: border-box;
   position: relative;
+  color: white;
 }
 
 .overlay-container {

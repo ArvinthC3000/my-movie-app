@@ -9,15 +9,18 @@ const Movies = () => {
     getDefaultMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log(movies);
 
   return (
     <>
       <div className='header'>
-        {!movies.length ? 'Popular' : `Search result`}
+        {movies !== null && !movies.length ? 'Popular' : `Search result`}
       </div>
       <div className='movieContainer'>
-        {!movies.length
+        {movies == null
           ? popular.map(movie => <MoviesList key={movie.id} movie={movie} />)
+          : !movies.length
+          ? 'No movies'
           : movies.map(movie => <MoviesList key={movie.id} movie={movie} />)}
       </div>
     </>

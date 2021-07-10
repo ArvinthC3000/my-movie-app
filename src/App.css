@@ -198,9 +198,8 @@ a.movieItem {
   padding: 1rem;
   display: flex;
   flex-direction: row-reverse;
-  /* flex-wrap: wrap; */
 }
 
-/* .mainModalContainer > div {
-  min-width: 10rem;
-} */
+#movie-modal::-webkit-scrollbar {
+  display: none;
+}

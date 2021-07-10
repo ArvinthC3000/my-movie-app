@@ -7,24 +7,9 @@ const MovieModal = e => {
 
   return (
     <div id='movie-modal' className='modal grey darken-4' style={modalStyle}>
-      <div
-        className='modal-content'
-        style={{ padding: '1rem', display: 'flex' }}>
+      <div className='modal-content mainContainer'>
         {movie && (
           <>
-            <div>
-              <div
-                style={{
-                  ...backdropStyle,
-                  height: '18rem',
-                  backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`,
-                }}></div>
-              <div
-                style={{
-                  ...backdropStyle,
-                  backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
-                }}></div>
-            </div>
             <div style={{ display: 'block' }}>
               <div style={fontTitle}>
                 <span style={{ ...lightFont, ...noDisplay }}>Title:</span>{' '}
@@ -48,6 +33,19 @@ const MovieModal = e => {
                 <p style={{ padding: '0' }}>{movie.overview}</p>
               </div>
             </div>
+            <div>
+              <div
+                style={{
+                  ...backdropStyle,
+                  height: '18rem',
+                  backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`,
+                }}></div>
+              <div
+                style={{
+                  ...backdropStyle,
+                  backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
+                }}></div>
+            </div>
           </>
         )}
       </div>
@@ -61,7 +59,7 @@ const MovieModal = e => {
 };
 
 const modalStyle = {
-  width: '75%',
+  width: '85%',
   height: '80%',
   zIndex: 5,
   transform: 'translate(0px, -50%)',

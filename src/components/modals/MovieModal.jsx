@@ -52,9 +52,9 @@ const MovieModal = e => {
         )}
       </div>
       <div className='modal-footer grey darken-4'>
-        {/* <a href='#!' className='modal-close waves-effect blue waves-light btn'>
-          Enter
-        </a> */}
+        <a href='#!' className='modal-close waves-effect grey waves-light btn'>
+          Close
+        </a>
       </div>
     </div>
   );

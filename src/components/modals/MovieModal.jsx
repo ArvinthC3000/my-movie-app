@@ -7,7 +7,7 @@ const MovieModal = e => {
 
   return (
     <div id='movie-modal' className='modal grey darken-4' style={modalStyle}>
-      <div className='modal-content mainContainer'>
+      <div className='modal-content mainModalContainer'>
         {movie && (
           <>
             <div style={{ display: 'block' }}>
@@ -75,13 +75,13 @@ const backdropStyle = {
 
 const fontTitle = {
   padding: '0 1rem',
-  fontSize: '1.4rem',
+  fontSize: '4vmin',
   fontWeight: 'normal',
 };
 
 const normalFont = {
   padding: '0 1rem',
-  fontSize: '1rem',
+  fontSize: '3vmin',
   fontWeight: 'light',
 };
 

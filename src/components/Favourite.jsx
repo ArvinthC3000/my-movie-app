@@ -15,11 +15,13 @@ const Favourite = () => {
     <>
       <div className='header'>Favourites</div>
       <div className='movieContainer'>
-        {favorites !== null
-          ? favorites.map(movie => (
-              <FavouritesList key={movie.id} movie={movie} />
-            ))
-          : 'No favourites yet'}
+        {favorites !== null && favorites.length ? (
+          favorites.map(movie => (
+            <FavouritesList key={movie.id} movie={movie} />
+          ))
+        ) : (
+          <div className='header'>No favourite movies yet</div>
+        )}
       </div>
     </>
   );

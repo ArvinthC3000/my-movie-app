@@ -17,7 +17,7 @@ const MovieModal = e => {
                 {`(${new Date(movie.release_date).getFullYear()})`}
               </div>
               <div style={fontTitle}>
-                <span style={{ ...lightFont }}>Released Date:</span>{' '}
+                <span style={{ ...lightFont }}>Release Date:</span>{' '}
                 {movie.release_date}
               </div>
               <div style={fontTitle}>

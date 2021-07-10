@@ -7,7 +7,9 @@ const MovieModal = e => {
 
   return (
     <div id='movie-modal' className='modal grey darken-4' style={modalStyle}>
-      <div className='modal-content' style={{ padding: '1rem' }}>
+      <div
+        className='modal-content'
+        style={{ padding: '1rem', display: 'flex' }}>
         {movie && (
           <>
             <div>
@@ -23,7 +25,29 @@ const MovieModal = e => {
                   backgroundImage: `url('https://image.tmdb.org/t/p/w500/${movie.backdrop_path}')`,
                 }}></div>
             </div>
-            <div></div>
+            <div style={{ display: 'block' }}>
+              <div style={fontTitle}>
+                <span style={{ ...lightFont, ...noDisplay }}>Title:</span>{' '}
+                {movie.title}{' '}
+                {`(${new Date(movie.release_date).getFullYear()})`}
+              </div>
+              <div style={fontTitle}>
+                <span style={{ ...lightFont }}>Released Date:</span>{' '}
+                {movie.release_date}
+              </div>
+              <div style={fontTitle}>
+                <span style={{ ...lightFont }}>Rating:</span>{' '}
+                {movie.vote_average}
+              </div>
+              <div style={fontTitle}>
+                <span style={{ ...lightFont }}>Popularity:</span>{' '}
+                {movie.popularity.toFixed(2)}
+              </div>
+              <div style={{ ...normalFont, paddingTop: '1rem' }}>
+                <span style={{ ...lightFont }}>Overview:</span>{' '}
+                <p style={{ padding: '0' }}>{movie.overview}</p>
+              </div>
+            </div>
           </>
         )}
       </div>
@@ -49,6 +73,27 @@ const backdropStyle = {
   height: '6.5rem',
   width: '12rem',
   margin: '0.2rem',
+};
+
+const fontTitle = {
+  padding: '0 1rem',
+  fontSize: '1.4rem',
+  fontWeight: 'normal',
+};
+
+const normalFont = {
+  padding: '0 1rem',
+  fontSize: '1rem',
+  fontWeight: 'light',
+};
+
+const lightFont = {
+  fontWeight: 'lighter',
+  opacity: '.2',
+};
+
+const noDisplay = {
+  display: 'none',
 };
 
 export default MovieModal;

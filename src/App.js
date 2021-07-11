@@ -9,6 +9,8 @@ import About from './components/About';
 import Home from './components/Home';
 import MovieModal from './components/modals/MovieModal';
 import MovieState from './context/movies/MoviesState';
+import { Provider } from 'react-redux';
+import store from './store';
 
 const App = () => {
   useEffect(() => {
@@ -17,15 +19,15 @@ const App = () => {
   });
 
   return (
-    <MovieState>
-      <MovieModal />
+    <Provider store={store}>
+      {/* <MovieModal /> */}
       <Router>
         <Switch>
-          <Route path='/' exact component={Home} />
+          {/* <Route path='/' exact component={Home} /> */}
           <Route path='/about' exact component={About} />
         </Switch>
       </Router>
-    </MovieState>
+    </Provider>
   );
 };
 

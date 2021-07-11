@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { getMovies } from '../actions/movieAction';
+import { getMovies } from '../actions/movieActions';
 
 const SearchBar = () => {
   const searchMovies = e => {

@@ -1,4 +1,5 @@
-import Favourite from './Favourite';
+// import Favourite from './Favourite';
+import { connect } from 'react-redux';
 import Header from './Header';
 import Movies from './Movies';
 
@@ -7,9 +8,9 @@ const Home = () => {
     <div>
       <Header />
       <Movies />
-      <Favourite />
+      {/* <Favourite /> */}
     </div>
   );
 };
 
-export default Home;
+export default connect(null)(Home);

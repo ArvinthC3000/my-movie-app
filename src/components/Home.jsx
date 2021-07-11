@@ -1,5 +1,4 @@
 // import Favourite from './Favourite';
-import { connect } from 'react-redux';
 import Header from './Header';
 import Movies from './Movies';
 
@@ -13,4 +12,4 @@ const Home = () => {
   );
 };
 
-export default connect(null)(Home);
+export default Home;

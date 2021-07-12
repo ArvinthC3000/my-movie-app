@@ -6,7 +6,7 @@ const About = ({ match }) => {
       <Header />
       <div className='container'>
         <h1>About This App</h1>
-        <p>App to search Github users</p>
+        <p>App to search Movies</p>
         <p>Version 1.0.0</p>
       </div>
     </>

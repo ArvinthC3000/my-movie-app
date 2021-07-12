@@ -7,9 +7,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import About from './components/About';
 import Home from './components/Home';
-// import MovieModal from './components/modals/MovieModal';
-import { Provider } from 'react-redux';
-import store from './store';
+import MovieModal from './components/modals/MovieModal';
+import MovieState from './context/movies/MoviesState';
 
 const App = () => {
   useEffect(() => {
@@ -18,15 +17,15 @@ const App = () => {
   });
 
   return (
-    <Provider store={store}>
-      {/* <MovieModal /> */}
+    <MovieState>
+      <MovieModal />
       <Router>
         <Switch>
           <Route path='/' exact component={Home} />
           <Route path='/about' exact component={About} />
         </Switch>
       </Router>
-    </Provider>
+    </MovieState>
   );
 };
 

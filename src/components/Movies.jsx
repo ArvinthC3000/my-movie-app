@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import MoviesList from './MoviesList';
-import { connect } from 'react-redux';
-import { getDefaultMovies } from '../actions/movieActions';
+import MoviesContext from './../context/movies/movieContext';
 
-const Movies = ({ movie: { movies, popular, searchString } }) => {
+const Movies = () => {
+  const movieContext = useContext(MoviesContext);
+  const { movies, popular, getDefaultMovies, searchString } = movieContext;
   useEffect(() => {
     getDefaultMovies();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -27,8 +28,4 @@ const Movies = ({ movie: { movies, popular, searchString } }) => {
   );
 };
 
-const mapStatetoProps = state => ({
-  movie: state.movie,
-});
-
-export default connect(mapStatetoProps, { getDefaultMovies })(Movies);
+export default Movies;

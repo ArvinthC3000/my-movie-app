@@ -7,18 +7,10 @@ import {
   REMOVE_MOVIES,
   SET_DEFAULT_MOVIES,
   SET_MODAL_DATA,
-} from '../actions/types';
-
-const initialState = {
-  popular: [],
-  movies: null,
-  favorites: [],
-  searchString: null,
-  modalData: null,
-};
+} from '../types';
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default (state = initialState, { type, payload }) => {
+const movieReducer = (state, { type, payload }) => {
   switch (type) {
     case SET_DEFAULT_MOVIES:
       return { ...state, popular: payload };
@@ -63,3 +55,5 @@ export default (state = initialState, { type, payload }) => {
       return state;
   }
 };
+
+export default movieReducer;

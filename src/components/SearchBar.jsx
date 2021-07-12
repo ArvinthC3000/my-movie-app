@@ -1,7 +1,9 @@
-import { connect } from 'react-redux';
-import { getMovies } from '../actions/movieActions';
+import { useContext } from 'react';
+import MoviesContext from './../context/movies/movieContext';
 
 const SearchBar = () => {
+  const movieContext = useContext(MoviesContext);
+  const { getMovies } = movieContext;
   const searchMovies = e => {
     getMovies(e.target.value);
   };
@@ -21,4 +23,4 @@ const SearchBar = () => {
   );
 };
 
-export default connect(null, { getMovies })(SearchBar);
+export default SearchBar;

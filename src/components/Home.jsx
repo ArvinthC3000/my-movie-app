@@ -1,4 +1,4 @@
-// import Favourite from './Favourite';
+import Favourite from './Favourite';
 import Header from './Header';
 import Movies from './Movies';
 
@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Header />
       <Movies />
-      {/* <Favourite /> */}
+      <Favourite />
     </div>
   );
 };
